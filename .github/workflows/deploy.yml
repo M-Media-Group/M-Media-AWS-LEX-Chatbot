@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - run: zip lambda.zip
-      - uses: yvesgurcan/deploy-lambda-function
+      - name: Deploy code to LAMBDA
+      uses: yvesgurcan/deploy-lambda-function
         with:
           package: lambda.zip
           function-name: MMedia-Lex-Lambda
