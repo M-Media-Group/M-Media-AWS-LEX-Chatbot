@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     # By default, treat the user request as coming from the America/New_York time zone.
     os.environ['TZ'] = 'America/New_York'
     time.tzset()
-    # logger.debug('event.bot.name={}'.format(event['bot']['name']))
+    logger.debug('event.bot.name={}'.format(event['bot']['name']))
 
     logger.debug('dispatch userId={}, intentName={}'.format(event['userId'], event['currentIntent']['name']))
     intent_name = event['currentIntent']['name']
