@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Deploy code to LAMBDA
-      uses: yvesgurcan/deploy-lambda-function@v0.0.5
+      - uses: yvesgurcan/deploy-lambda-function@v0.0.5
         with:
           package: ${{github.workspace}}/${{ github.event.repository.name }}.zip
           function-name: MMedia-Lex-Lambda
