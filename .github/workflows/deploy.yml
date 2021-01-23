@@ -1,0 +1,20 @@
+name: Deploy Lambda
+
+on:
+  push:
+    tags:
+    - "*"
+
+jobs:
+  deploy-lambda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: zip lambda.zip
+      - uses: yvesgurcan/deploy-lambda-function
+        with:
+          package: lambda.zip
+          function-name: MMedia-Lex-Lambda
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ID }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
