@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Deploy code to LAMBDA
-      uses: yvesgurcan/deploy-lambda-function
+      uses: yvesgurcan/deploy-lambda-function@v0.0.5
         with:
-          package: lambda.zip
+          package: ${{github.workspace}}/${{ github.event.repository.name }}.zip
           function-name: MMedia-Lex-Lambda
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_SECRET_ID: ${{ secrets.AWS_LAMBDA_ACCESS_ID }}
