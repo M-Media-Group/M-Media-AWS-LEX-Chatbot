@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - run: zip lambda.zip
       - uses: yvesgurcan/deploy-lambda-function@v0.0.5
         with:
-          package: ${{github.workspace}}/${{ github.event.repository.name }}.zip
+          package: lambda.zip
           function-name: MMedia-Lex-Lambda
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_SECRET_ID: ${{ secrets.AWS_LAMBDA_ACCESS_ID }}
